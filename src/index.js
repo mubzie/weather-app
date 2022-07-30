@@ -1,8 +1,5 @@
-import { fetchWeatherData } from "./Modules/fetch";
-// import { processFetchApi } from "./Modules/processFetchData";
+import { fetchWeatherData } from "./Modules/fetchData";
 
-let city = "ibadan";
-
+let city = "Lagos";
 
 fetchWeatherData(city);
-// processFetchApi()

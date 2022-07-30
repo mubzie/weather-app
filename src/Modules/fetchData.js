@@ -9,20 +9,32 @@ const fetchWeatherData = async (city) => {
         const longitude = getGeolocation[0].lon;
 
         // openweathermap api that returns the data for goe location
-        const weatherApi = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=71380f889ac5311673f3b27c8c5ce60f&units=imperial`, {mode: "cors"});
-        const response = await weatherApi.json();
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=71380f889ac5311673f3b27c8c5ce60f&units=imperial`, {mode: "cors"});
+        const data = await response.json();
 
-        console.log(response); 
+        getWeatherInfo(data)
 
-        return {
-         response
-        }
+        console.log(data); 
 
+        
     } catch (error) {
         console.log(error);
     }
     
 }
 
-export { fetchWeatherData };
+const getWeatherInfo = (data) => {
 
+    const weatherInfo = {
+       name: data.name,
+       country: data.sys.country 
+    }
+
+    console.log(weatherInfo.name)
+
+    return weatherInfo;
+}
+
+export { fetchWeatherData, getWeatherInfo };
+
+ 
