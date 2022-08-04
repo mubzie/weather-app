@@ -1,5 +1,5 @@
-import { fetchWeatherData } from "./Modules/fetchData";
+import { fetchLocationGeo } from "./Modules/fetchData";
 
-let city = "Lagos";
+let city = "London";
 
-fetchWeatherData(city);
+fetchLocationGeo(city);
