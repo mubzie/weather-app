@@ -3,7 +3,7 @@ const fetchLocationGeo = async (city) => {
 
         const response = await fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=71380f889ac5311673f3b27c8c5ce60f`, { mode: "cors"});
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
 
         const lat = data[0].lat
         const lon = data[0].lon
@@ -23,8 +23,6 @@ const fetchWeatherData = async (lat, lon) => {
         const data = await response.json();
         // console.log(data); 
 
-        // return getWeatherInfo(data)
-
         return data;
 
     } catch (error) {
@@ -36,8 +34,13 @@ const fetchWeatherData = async (lat, lon) => {
 const getWeatherInfo = (data) => {
 
     const weatherInfo = {
-        name: data.name,
+        city: data.name,
         country: data.sys.country,
+        temperature: data.main.temp,
+        humidity: data.main.humidity,
+        feels_like: data.main.feels_like,
+        wind: data.wind.speed,
+        description: data.weather[0].description
     }
 
     return weatherInfo
