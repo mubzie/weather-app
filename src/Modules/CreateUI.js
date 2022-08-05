@@ -1,10 +1,16 @@
 import { fetchLocationGeo } from "./fetchData";
 import { fetchWeatherData } from "./fetchData";
 import { getWeatherInfo } from "./fetchData";
+import "../styles/createUi.css"
 
-let city = "London";
 
 const weatherInfo = async () => {
+
+    let city = "ibadan";
+
+    const input = document.querySelector('#input').value
+
+    city = input;
 
     const {lat, lon} = await fetchLocationGeo(city);
     // console.log(lat, lon)
@@ -16,8 +22,33 @@ const weatherInfo = async () => {
 
     console.log(weatherDataInfo.description);
 
+    const data = weatherDataInfo;
+    
+    const description = document.querySelector('.description')
+    description.textContent = data.description;
+
+    const location = document.querySelector('.location-div');
+    location.textContent = `${data.city}, ${data.country}`
+
+    const temperature = document.querySelector('.temp-div');
+    temperature.textContent = data.temperature;
+
+    const feelsLike = document.querySelector('.feels-like');
+    feelsLike.textContent = data.feels_like;
+
+    const humidity = document.querySelector('.humidity');
+    humidity.textContent = data.humidity;
+
+    const windSpeed = document.querySelector('.wind-speed');
+    windSpeed.textContent = data.wind;
+
     return weatherDataInfo;
 }
+
+
+const search = document.querySelector('.btn')
+
+search.addEventListener('click', weatherInfo)
 
 const createUi = async () => {
     const data = await weatherInfo();
@@ -26,6 +57,11 @@ const createUi = async () => {
     const header = document.createElement('header');
     header.classList.add('header');
     header.textContent = "Weather App";
+
+
+      // PAGE MAIN CONTAINER >>>>>>>>>>>>>>>>>>>>
+      const wrapperContainer = document.createElement('div');
+      wrapperContainer.classList.add('wrapper')
 
     // PAGE MAIN CONTAINER >>>>>>>>>>>>>>>>>>>>
     const containerDiv = document.createElement('div');
@@ -73,11 +109,13 @@ const createUi = async () => {
 
     weatherInfoDiv.append(tempDiv, childDiv2)
 
+    containerDiv.append(childDiv1, weatherInfoDiv);
 
-    document.body.append(header, childDiv1, weatherInfoDiv);
+    wrapperContainer.appendChild(containerDiv);
+
+
+    document.body.append(header, wrapperContainer);
 }
-
-createUi()
 
 
 
