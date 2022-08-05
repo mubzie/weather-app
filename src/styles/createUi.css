@@ -1,4 +1,23 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../fonts/WorkSans-SemiBold.ttf') format('truetype');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../fonts/WorkSans-Regular.ttf') format('truetype');
+    font-weight: 500;
+}
+
+*{
+    box-sizing: border-box;
+}
+
 body {
+    font-family: "workSans";
+    font-size: 20px;
+    font-weight: 500;
     height: 100vh;
     background-color: #fff;
     margin: 0;
@@ -7,17 +26,47 @@ body {
 }
 
 .header {
+    font-family: "WorkSans";
+    font-weight: 900;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size:  48px;
     height: 120px;
-    background-color: #000;
+    background-color: #25282B;
     color:#fff;
 }
 
 .form {
-    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 64px;
+}
+
+.form input[type="text"] {
+    font-family: "WorkSans";
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: capitalize;
+    padding: 8px;
+    height: 48px;
+    width: 320px;
+    border-radius: 4px;
+    border: 1px solid #25282B;
+}
+
+.btn {
+    font-family: "WorkSans";
+    font-size: 20px;
+    padding: 8px;
+    height: 48px;
+    width: 91px;
+    background-color: #25282B;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .wrapper {
@@ -25,21 +74,52 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .container-div {
-    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 108px;
-    gap: 56px;
+    margin-top: 48px;
+    gap: 24px;
+    padding: 16px;
 }
 
 .weather-info-div {
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     gap: 50px;
 }
 
-/* .child-div-1 {
+.description {
+    font-size: 24px;
+}
+
+.location-div {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.temp-div {
+    font-size: 96px;
+    font-weight: 800;
+    padding: 8px;
     display: flex;
-    align-items: flex-start;
-} */
+    justify-content: center;
+    align-items: center;
+}
+
+.child-div-1 {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-transform: capitalize;
+}
+
+.child-div-2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

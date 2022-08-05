@@ -19,7 +19,7 @@ const fetchWeatherData = async (lat, lon) => {
     try {
 
         // openweathermap api that returns the data for goe location
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=71380f889ac5311673f3b27c8c5ce60f&units=imperial`, {mode: "cors"});
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=71380f889ac5311673f3b27c8c5ce60f&units=metric`, {mode: "cors"});
         const data = await response.json();
         // console.log(data); 
 
